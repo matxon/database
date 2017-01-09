@@ -1,0 +1,42 @@
+extends layout
+
+
+block content
+  section
+    h1 Документы 
+      small ATYRAUGEOCONTROL
+    ol.breadcrumb
+      li
+        a(href='/docs') Database
+      li.active Документы
+
+  section
+    .row
+      .col-md-12
+        .box.box-solid
+          .box-header
+          .box-body
+            .table-responsive
+              table.table.table-bordered.table-hover(style="font-size:14px")
+                thead
+                  tr
+                    th #
+                    th Категория
+                    th Наименование документа
+                    th Полное описание документа
+                    th Срок действия
+                    th Автор
+                tbody
+                  each val in title
+                    tr
+                      td #{val.document_id}
+                      td #{val.doc_category}
+                      td #{val.doc_name}
+                      td #{val.description}
+                      td #{val.validity_date}
+                      td #{val.author}
+
+
+
+block scripts
+  script(src="javascripts/ajax.js")

@@ -1,0 +1,76 @@
+extends layout
+
+
+block content
+  section
+    h1 Пользователь
+      small Управление подразделениями клиентов
+    ol.breadcrumb
+      li
+        a(href='/docs') Database
+      li.active Ползователи
+
+  section
+    .row
+      .col-md-3
+        .row
+          .col-md-12
+            .box.box-solid
+              .box-body
+                //.btn-group-vertical(role="group")
+                a.btn.btn-success.btn-block(href="/creat") Создать пользователя
+                a.btn.btn-primary.btn-block(href="/") Пользователи
+          .col-md-12
+            small
+              В данном разделе содержится информация о пользователях, вы можете найти и отправить запрос
+              на изменение информации
+      .col-md-9
+        .row
+          .col-md-12
+            .box.box-solid
+              .box-body
+                input#fio-find-admin.form-control(
+                  placeholder="ФИО или логин"
+                  type="text")
+          .col-md-12
+            .box.box-solid
+              .box-header
+
+              .box-body
+                .panel-body
+
+                  // begin cycle
+                  each val in title
+                    .box.box-solid
+                      .box-header
+                        h3
+                          a.text-light-blue(href="#") #{val.fio}
+                        // rull-right - ??
+                        .box-tools.pull-right
+                          span.label.label-success enable
+                          span.label.label-default offline
+                      .box-body
+                        .row
+                          .col-md-2
+                            // img-responsive - ???
+                            img.img-responsive(
+                              style="border:1px solid #dddddd"
+                              src="/img/avatar5.png"
+                              alt="user inage")
+                          .col-md-3
+                            .row
+                              .col-md-6
+                                small.text-muted Login:
+                              .col-md-6
+                                small #{val.username}
+                            .row
+                              .col-md-6
+                                small.text-muted E-mail:
+                              .col-md-6
+                                small #{val.password}
+                          .col-md-3
+                          .col-md-4
+                        // end cycle
+
+block scripts
+  script(src="javascripts/ajax.js")

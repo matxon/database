@@ -1,0 +1,132 @@
+extends layout
+
+
+block content
+  section
+    h1 Пользователь
+      small Управление подразделениями клиентов
+    ol.breadcrumb
+      li
+        a(href='/docs') Database
+      li.active Ползователи
+
+  section
+    .row
+      .col-md-3
+        .row
+          .col-md-12
+            .box.box-solid
+              .box-body
+                //.btn-group-vertical(role="group")
+                //a.btn.btn-success.btn-block(href="#") Создать пользователя
+                a.btn.btn-primary.btn-block(href="/") Пользователи
+          .col-md-12
+            small
+              В данном разделе содержится информация о пользователях, вы можете найти и отправить запрос
+              на изменение информации
+      .col-md-9
+        .row
+          .col-md-12
+            .box.box-solid
+              .box-header
+                h3.box-title Новый пользователь
+              .box-body
+                #form_message
+                form.form-horizontal(role="form")
+                  #login_user_grp.form-group
+                    label.col-sm-2.control-label(for="login")
+                      small Логин
+                    .col-sm-10
+                      input#login_user.form-control.input-sm(
+                        autocomplete="off"
+                        name="login_user"
+                        placeholder="Логин")
+                  #fio_user_grp.form-group
+                    label.col-sm-2.control-label(for="fio")
+                      small ФИО
+                    .col-sm-10
+                      input#fio_user.form-control.input-sm(
+                        autocomplete="off"
+                        name="fio_user"
+                        placeholder="Фамилия, имя и отчество")
+                  .form-group
+                    label.col-sm-2.control-label(for="email")
+                      small E-mail
+                    .col-sm-10
+                      input#email_user.form-control.input-sm(
+                        autocomplete="off"
+                        name="email_user"
+                        placeholder="E-mail")
+                  .control-group
+                    .controls
+                      .form-group
+                        label.col-sm-2.control-label(for='posada')
+                          small Привелегия
+                        .col-sm-10
+                          //select#posada.chosen-select.form-control.input-sm(
+                          select.form-control.input-sm(
+                            name="posada"
+                            data-placeholder="Привилегия"
+                            )
+                              option(value='0')
+                              option(value='administrator') administrator
+                              option(value='coordinator') coordinator
+                      //
+                        #posada_chosen.chosen-container.chosen-container-single(
+                          style="width:600px;"
+                          title='')
+                            a.chosen-single.chosen-default(tabindex='1')
+                              span Привилегия
+                              div
+                            .chosen-drop
+                              .chosen-search
+                                input(autocomplete='off' type='text')
+                              ul.chosen-results
+                                li.active-result(style='' data-option-array-index='1') administrator
+                                li.active-result(style='' data-option-array-index='2') coordinator
+                  div
+                    hr
+                  div
+                    center
+                      button#create_user_approve.btn.btn-success(type='submit') Создать пользователя
+                    #res
+
+
+
+                .panel-body
+
+                  // begin cycle
+                  each val in title
+                    .box.box-solid
+                      .box-header
+                        h3
+                          a.text-light-blue(href="#") #{val.name}
+                        // rull-right - ??
+                        .box-tools.pull-right
+                          span.label.label-success enable
+                          span.label.label-default offline
+                      .box-body
+                        .row
+                          .col-md-2
+                            // img-responsive - ???
+                            img.img-responsive(
+                              style="border:1px solid #dddddd"
+                              src="/img/avatar5.png"
+                              alt="user inage")
+                          .col-md-3
+                            .row
+                              .col-md-6
+                                small.text-muted Login:
+                              .col-md-6
+                                small #{val.username}
+                            .row
+                              .col-md-6
+                                small.text-muted E-mail:
+                              .col-md-6
+                                small #{val.password}
+                          .col-md-3
+                          .col-md-4
+                        // end cycle
+
+block scripts
+  script(src="javascripts/ajax.js")
