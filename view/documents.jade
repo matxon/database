@@ -33,8 +33,30 @@ block content
                       td #{val.doc_category}
                       td #{val.doc_name}
                       td #{val.description}
-                      td #{val.validity_date}
+                      td #{val.validity_date.getDate() + '.' + (val.validity_date.getMonth() + 1) + '.' + val.validity_date.getFullYear()}
                       td #{val.author}
+  section
+    .row
+      .col-md-12
+        .box.box-solid
+          .box-header
+          .box-body
+            form.form-horizontal(
+              action='/docs'
+              enctype='multipart/form-data'
+              method='post')
+              .form-group
+                label.col-sm-2.control-label
+                  small Файл
+                .col-sm-10
+                  input.form-control.input-sm(
+                    autocomplete='off'
+                    name='descriotion_file'
+                    placeholder='descriotion file')
+              .form-group
+                input.form-control(type='file' name='file')
+              input(type='submit' value='Send')
+
 
 
 

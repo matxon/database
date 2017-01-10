@@ -1,5 +1,6 @@
 // 1. Қажетті пакеттерді қосу
 var mysql = require('mysql');
+var multer = require('multer');
 var express = require('express');
 var router = express.Router();
 // Бұл пакеттің не үшін қажет екенін әлі біле алмай тұрмын
@@ -7,6 +8,7 @@ var router = express.Router();
 
 
 var app = express();
+var upload = multer( {dest:'uploads/'} );
 
 app.use(express.static('public'));
 app.set('views', './view');
@@ -41,6 +43,14 @@ connection.connect(function(err){
 
 
 
+router.post('/docs',upload.single('file'), function( req, res, next ){
+  // req.file is the 
+  console.log(req.file);
+  // req.body will contain the text fields, if there were any
+  console.log(req.body);
+  res.send('Ok');
+  next();
+});
 
 
 
@@ -92,8 +102,9 @@ router.get('/users', function(req, res){
       console.error('Error /users: ' + err);
       res.json('error.jade');
     } else {
-      console.log(rows);
-      res.json( rows );
+      //console.log(rows);
+      //res.json( rows );
+      res.send( 'Ok' );
     }
   });
 
