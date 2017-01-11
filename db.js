@@ -6,9 +6,18 @@ var router = express.Router();
 // Бұл пакеттің не үшін қажет екенін әлі біле алмай тұрмын
 //var bodyParser = require('body-parser');
 
+// қабылдап алынатын файлды өз қалауыңша өңдеу
+var storage = multer.diskStorage({
+  destination: function( req, file, cb ) {
+    cb( null, './uploads' );
+  },
+  filename: function( req, file, cb ) {
+    cb( null, Date.now() + '_' + file.originalname );
+  }
+});
 
 var app = express();
-var upload = multer( {dest:'uploads/'} );
+var upload = multer( {storage:storage} );
 
 app.use(express.static('public'));
 app.set('views', './view');
@@ -48,7 +57,7 @@ router.post('/docs',upload.single('file'), function( req, res, next ){
   console.log(req.file);
   // req.body will contain the text fields, if there were any
   console.log(req.body);
-  res.send('Ok');
+  res.redirect(302, '/docs')
   next();
 });
 
