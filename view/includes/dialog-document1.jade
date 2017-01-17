@@ -1,0 +1,41 @@
+#dialog(title="Dialog Title")
+
+  form
+
+    .form-group
+      label.control-label(for="login")
+        small Логин
+      div
+        input#login.form-control.input-sm(
+          autocomplete="off"
+          name="login_user"
+          placeholder="Логин")
+
+    .form-group
+      label.control-label(for="fio")
+        small ФИО
+      div
+        input#fio.form-control.input-sm(
+          autocomplete="off"
+          name="fio_user"
+          placeholder="Фамилия, имя и отчество")
+
+    .form-group
+      label.control-label(for="email")
+        small E-mail
+      div
+        input#email.form-control.input-sm(
+          autocomplete="off"
+          name="email_user"
+          placeholder="E-mail")
+
+    .form-group
+      label.control-label(for='posada')
+        small Привелегия
+      div
+        select#posada.form-control.input-sm(
+          data-placeholder="Привилегия"
+          )
+            option(value='0')
+            option(value='administrator') administrator
+            option(value='coordinator') coordinator
