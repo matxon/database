@@ -1,36 +1,9 @@
+include ../mixins/mixins
+
 #dialog(title="Dialog Title")
 
-  form.form-inline
-
-    .form-group
-      label(for="")
-        Категория
-      input.form-control.input-sm(
-        autocomplete="off"
-        name=""
-        placeholder="Категория")
-
-    .form-group
-      label(for="fio")
-        ФИО
-      input#fio.form-control.input-sm(
-        autocomplete="off"
-        name="fio_user"
-        placeholder="Фамилия, имя и отчество")
-
-    .form-group
-      label(for="email") E-mail
-      input#email.form-control.input-sm(
-        autocomplete="off"
-        name="email_user"
-        placeholder="E-mail")
-
-    .form-group
-      label(for='posada')
-        Привелегия
-      select#posada.form-control.input-sm(
-        data-placeholder="Привилегия"
-        )
-          option(value='0')
-          option(value='administrator') administrator
-          option(value='coordinator') coordinator
+  form.form
+    +mx-input( 'login', 'text', 'Логин' )
+    +mx-input( 'fio', 'text', 'ФИО' )
+    +mx-input( 'email', 'text', 'E-mail')
+    +mx-select( 'posada', 'Привилегия' )

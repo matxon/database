@@ -1,0 +1,21 @@
+//- ####################################
+//-            mx-input()
+//- ####################################
+mixin mx-input( id, type, name )
+  .form-group
+    label(for=id)= name
+    input.form-control.input-sm(
+      id=id
+      type=type
+      autocomplete="off"
+      name=id
+      placeholder=name)
+
+
+mixin mx-select( id, name )
+  .form-group
+    label(for=id)= name
+    select.form-control.input-sm( id=id, required )
+      option(value='') Select ...
+      option(value='1') administrator
+      option(value='2') coordinator
