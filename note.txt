@@ -50,6 +50,9 @@ git config --global core.excludesfile ~/.gitexcludes
   окружения. Хороших коммитов! :)
 _______________________________________________________________________________________
 
+src: http://loudev.com/#home
 
+multiselect.js - жобада пайдалануға қажет болады деген үмітпен салып отырмын
+I'm a user-friendlier drop-in replacement for the standard <select> with multiple attribute activated. 
 
 
