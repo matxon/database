@@ -90,3 +90,16 @@ CREATE TABLE IF NOT EXISTS `test`.`employee_files` (
         ON DELETE NO ACTION ON UPDATE NO ACTION
 )  ENGINE=INNODB DEFAULT CHARACTER SET=UTF8 COMMENT='Қызметкерлерге қатысты файлдарды байланыстыратын кесте';
 
+
+
+
+
+INSERT INTO `test`.`users` 
+	(`username`, `password`, `email`, `blocked`, `user_id`) 
+	VALUES 
+    ('root', 'password', 'kmadi@inbox.ru', '', '');
+
+INSERT INTO `companies` 
+	VALUES 
+    ('ТОО \"Атыраугеоконтроль\"','060840005288','Республика Казахстан, 060026, г.Атырау, Северная Промзона, 29а',NULL,'+7 7122 30-65-88','reception@atyraugeocontrol.kz','Генеральный директор','Сулейменов Ж.Е.',1),
+    ('ТОО \"БатысГеоЗерттеу\"','080440015511','Республика Казахстан, 060026, г.Атырау, Северная Промзона, 29',NULL,'+7 7122 хх-хх-хх','reception@bgz.kz','Директор','Нурмуханов К.У.',2);
