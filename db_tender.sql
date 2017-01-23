@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `test`.`users` (
 
 CREATE TABLE IF NOT EXISTS `test`.`documents` (
     `document_folder` VARCHAR(45) NOT NULL, -- COMMENT 'Құжаттар топтамасының атауы(папканың аты)',
-    `description` VARCHAR(45) NOT NULL, -- COMMENT 'Сол топтаманың сипаттамасы (қандай құжаттар екені)',
+    `description` VARCHAR(255) NOT NULL, -- COMMENT 'Сол топтаманың сипаттамасы (қандай құжаттар екені)',
     `company_id` INT NOT NULL, -- COMMENT 'Топтаманың иесі',
     `document_id` INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`document_id` , `company_id`),
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `test`.`employee_files` (
 INSERT INTO `test`.`users` 
 	(`username`, `password`, `email`, `blocked`, `user_id`) 
 	VALUES 
-    ('root', 'password', 'kmadi@inbox.ru', '', '');
+    ('root', 'password', 'kmadi@inbox.ru', NULL, NULL);
 
 INSERT INTO `companies` 
 	VALUES 

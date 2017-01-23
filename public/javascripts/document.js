@@ -1,5 +1,5 @@
 $( "#dialog" ).dialog( {
-  autoOpen: true,
+  autoOpen: false,
   modal: true,
   minWidth: 600,
   minHeight: 330

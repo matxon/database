@@ -4,11 +4,15 @@
   "description": "Mysql-мен жұмыс істеп үйрену",
   "main": "db.js",
   "dependencies": {
-    "express": "^4.14.0",
-    "mysql": "^2.12.0",
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "cookie-session": "^2.0.0-alpha.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "express-validator": "^3.1.2",
     "jade": "^1.11.0",
-    "multer": "^1.2.1"
+    "multer": "^1.2.1",
+    "mysql": "^2.12.0"
   },
   "devDependencies": {},
   "scripts": {

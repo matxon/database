@@ -9,6 +9,9 @@ block content
       li
         a(href='/docs') Database
       li.active Документы
+      if username
+        li 
+          em #{username}
 
   section
     .row
@@ -21,20 +24,16 @@ block content
                 thead
                   tr
                     th #
-                    th Категория
-                    th Наименование документа
-                    th Полное описание документа
-                    th Срок действия
-                    th Автор
+                    th Құжаттар топтамасы
+                    th Сипаттамасы
+                    th Құжаттың иесі
                 tbody
                   each val in title
                     tr
                       td #{val.document_id}
-                      td #{val.doc_category}
-                      td #{val.doc_name}
+                      td #{val.document_folder}
                       td #{val.description}
-                      td #{val.validity_date.getDate() + '.' + (val.validity_date.getMonth() + 1) + '.' + val.validity_date.getFullYear()}
-                      td #{val.author}
+                      td #{val.company_name}
             button#opener.btn.btn-default(type="submit") Add Document
   include ./includes/dialog-document.jade
 
