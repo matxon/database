@@ -61,6 +61,35 @@ connection.connect(function(err){
 
 
 
+
+
+
+
+var upl = multer();
+router.post('/login', upl.fields([]), function(req, res, next) {
+    console.log(req.body);
+  var query = 'select * from users where username="' + req.body.login + '"';
+  console.log(query);
+  connection.query(query, function( err, row ) {
+    if (err) throw error;
+    if (row.length) {
+      console.log(row);
+      res.status('200').send({ ok: true });
+    } else {
+      console.log('Мұндай кісі тіркелмеген');
+      res.status('200').send({ ok: false});
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
 router.post('/docs',upload.single('file'), function( req, res, next ){
   // req.file is the 
   console.log(req.file);
@@ -69,6 +98,11 @@ router.post('/docs',upload.single('file'), function( req, res, next ){
   res.redirect(302, '/docs')
   next();
 });
+
+
+
+
+
 
 
 
@@ -99,6 +133,7 @@ router.post('/submit', function(req,res, next) {
   req.session.username = req.body.login;
   res.redirect('/');
 });
+
 
 router.get('/create', function(req, res){
 
